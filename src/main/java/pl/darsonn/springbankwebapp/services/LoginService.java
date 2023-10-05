@@ -1,0 +1,10 @@
+package pl.darsonn.springbankwebapp.services;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class LoginService {
+    public boolean validateUser(String uid, String password) {
+        return uid.equalsIgnoreCase("12345") && password.equalsIgnoreCase("haslo");
+    }
+}

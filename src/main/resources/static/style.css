@@ -1,0 +1,44 @@
+body {
+    background-color: #454955;
+    color: #f3eff5;
+    text-align: center;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+.wc {
+    color: #f3eff5;
+}
+
+.lg {
+    color: #72b01d;
+}
+
+.dg {
+    color: #3f7d20;
+}
+
+.dd {
+    color: #0d0a0b;
+}
+
+.backgroundAfterMainTitle {
+    border: #3f7d20;
+    background-color: #0d0a0b;
+    border-style: solid;
+    padding: 200px 50px;
+    margin: 50px 100px;
+    border-radius: 50px;
+    opacity: 50%;
+}
+
+.menu, a:hover, a:visited {
+    color: #f3eff5;
+    border: #454955 solid;
+    padding: 10px 2px;
+    border-radius: 10%;
+
+}
