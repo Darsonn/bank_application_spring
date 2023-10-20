@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pl.darsonn.springbankwebapp.services.LoginService;
 
 @Controller
@@ -18,18 +19,19 @@ public class LoginController {
         return "login";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String showUserPanel(ModelMap model, @RequestParam String uid, @RequestParam String password) {
+    @RequestMapping(value = "/validate", method = RequestMethod.GET)
+    public String validate(ModelMap model, @RequestParam String uid, @RequestParam String password, RedirectAttributes redirectAttributes) {
         boolean isValidUser = loginService.validateUser(uid, password);
 
         if(!isValidUser) {
-            model.put("errorMessage", "Błędne dane!");
+            //model.put("errorMessage", "Błędne dane!");
             return "login";
         }
         model.put("uid", uid);
         model.put("password", password);
 
-        return "userpanel";
+        redirectAttributes.addAttribute("uid", uid);
+        return "redirect:userpanel";
     }
 
     @ExceptionHandler(Exception.class)
@@ -37,5 +39,4 @@ public class LoginController {
         e.printStackTrace();
         return "error";
     }
-
 }

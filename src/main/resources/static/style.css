@@ -40,5 +40,10 @@ body {
     border: #454955 solid;
     padding: 10px 2px;
     border-radius: 10%;
+}
 
+form {
+    text-align: center;
+    position: fixed;
+    padding: 100px;
 }
